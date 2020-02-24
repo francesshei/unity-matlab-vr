@@ -11,9 +11,12 @@ public class MATLABServer : NetworkBehaviour {
       // Use this for initialization
       TcpListener listener;
       String msg;
+      String initData;
       //Variables to reconstruct from the message
       public float[] joints = new float[7];
+      public float[] initJoints = new float[7];
       public float[] delta_joints = new float[7];
+      private bool moved = false; 
       public int inv_speed = 5; 
       [SyncVar] private GameObject tg1, tg2, tg3, tg4, tg5, tg6, tg7;  
 
@@ -21,6 +24,8 @@ public class MATLABServer : NetworkBehaviour {
           listener = new TcpListener (6321);
           listener.Start ();
           print ("The MATLAB server is listening");
+          //FindKUKAPieces();
+          //initialMovement();
           //Initializing the robot pieces to move via the IEnumerator function 
           //They are not spawned @ the start of the scene: can't be accessed here
       }
@@ -39,9 +44,7 @@ public class MATLABServer : NetworkBehaviour {
               FindKUKAPieces();
               msg = reader.ReadToEnd();
               print (msg);
-              //trying to acces GameObjects here
               
-
               joints = ReconstructJoints(msg);
               StartCoroutine(MoveKuka(joints));
           }
@@ -67,6 +70,14 @@ public class MATLABServer : NetworkBehaviour {
         }
         
         return joints;
+    }
+
+    private void initialMovement(){
+        initData = "0#0.7660#-3.1416#1.0554#0#-1.3013#-3.1416";
+        initJoints = ReconstructJoints(initData);
+        StartCoroutine(MoveKuka(joints));
+        moved = true; 
+
     }
 
 
