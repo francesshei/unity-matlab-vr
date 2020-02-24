@@ -178,6 +178,7 @@
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\Internal\SuppressMemoryAllocationErrorAttribute.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
      <Compile Include="Assets\Scripts\MATLABServer.cs" />
+     <Compile Include="Assets\Scripts\ServerSceneMovement.cs" />
      <Compile Include="Assets\Scripts\SetUpLocalPlayer.cs" />
      <Compile Include="Assets\Scripts\SpawnedMovement.cs" />
      <Compile Include="Assets\Scripts\VRClient.cs" />
