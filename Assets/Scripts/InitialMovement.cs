@@ -10,11 +10,15 @@ using Mirror;
 public class InitialMovement : NetworkBehaviour {
       // Use this for initialization
       public float[] initJoints = new float[7];
+      public float[] initSecondJoints = new float[7];
       private string initData;
+      private string initSecondData;
       public float[] delta_joints = new float[7];
+      public float[] second_delta_joints = new float[7];
       private bool moved = false; 
       public int inv_speed = 5; 
       [SyncVar] private GameObject tg1, tg2, tg3, tg4, tg5, tg6, tg7;  
+      [SyncVar] private GameObject tg8, tg9, tg10, tg11, tg12, tg13, tg14;  
 
       void Start () {
           print ("Going to home position");
@@ -38,6 +42,14 @@ public class InitialMovement : NetworkBehaviour {
         tg5 = GameObject.Find("Ring5");
         tg6 = GameObject.Find("Head");
         tg7 = GameObject.Find("Camera");
+
+        tg8 = GameObject.Find("Ring12");
+        tg9 = GameObject.Find("Ring22");
+        tg10 = GameObject.Find("Ring32");
+        tg11 = GameObject.Find("Ring42");
+        tg12 = GameObject.Find("Ring52");
+        tg13 = GameObject.Find("Head2");
+        tg14 = GameObject.Find("Camera2");
     }
     //Function to reconstruct the joint values from the string received from MATLAB 
     private float[] ReconstructJoints(String data){
@@ -54,9 +66,12 @@ public class InitialMovement : NetworkBehaviour {
 
     private void initialMovement(){
         initData = "0#0.7660#-3.1416#1.0554#0#-1.3013#-3.1416";
+        initSecondData = "3.1416#0.7660#-3.1416#1.0554#0#-1.3013#-3.1416";
         initJoints = ReconstructJoints(initData);
+        initSecondJoints = ReconstructJoints(initSecondData);
         FindKUKAPieces();
         StartCoroutine(MoveKuka(initJoints));
+        StartCoroutine(MoveSecondKuka(initSecondJoints));
 
     }
 
@@ -75,6 +90,26 @@ public class InitialMovement : NetworkBehaviour {
         tg5.transform.Rotate(0f, -delta_joints[4], 0f);
         tg6.transform.Rotate(0f, delta_joints[5], 0f);
         tg7.transform.Rotate(0f, delta_joints[6], 0f);
+        //Debug.Log(tg7.transform.position);
+        yield return null;
+        }
+        Debug.Log("Finished");
+       
+    }
+     IEnumerator MoveSecondKuka(float[] joints) {
+        Debug.Log("Moving Kuka");
+        for (int i=0; i < joints.Length; i++){
+        second_delta_joints[i] = joints[i]/inv_speed;  
+        }
+        
+        for (int i=0; i < inv_speed; i++){
+        tg8.transform.Rotate(0f, - second_delta_joints[0], 0f);
+        tg9.transform.Rotate(0f,  second_delta_joints[1], 0f);
+        tg10.transform.Rotate(0f, - second_delta_joints[2], 0f);
+        tg11.transform.Rotate(0f, -second_delta_joints[3], 0f);
+        tg12.transform.Rotate(0f, -second_delta_joints[4], 0f);
+        tg13.transform.Rotate(0f, second_delta_joints[5], 0f);
+        tg14.transform.Rotate(0f, second_delta_joints[6], 0f);
         //Debug.Log(tg7.transform.position);
         yield return null;
         }
