@@ -177,6 +177,7 @@
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\Internal\GvrCursorHelper.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\Internal\SuppressMemoryAllocationErrorAttribute.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
+     <Compile Include="Assets\Scripts\CamerasInteraction.cs" />
      <Compile Include="Assets\Scripts\InitialMovement.cs" />
      <Compile Include="Assets\Scripts\MATLABServer.cs" />
      <Compile Include="Assets\Scripts\ServerSceneMovement.cs" />

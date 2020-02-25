@@ -17,8 +17,8 @@ public class InitialMovement : NetworkBehaviour {
       public float[] second_delta_joints = new float[7];
       private bool moved = false; 
       public int inv_speed = 5; 
-      [SyncVar] private GameObject tg1, tg2, tg3, tg4, tg5, tg6, tg7;  
-      [SyncVar] private GameObject tg8, tg9, tg10, tg11, tg12, tg13, tg14;  
+      [SyncVar] private GameObject b1, tg1, tg2, tg3, tg4, tg5, tg6, tg7, t1, k;  
+      [SyncVar] private GameObject b2, tg8, tg9, tg10, tg11, tg12, tg13, tg14, t2;  
 
       void Start () {
           print ("Going to home position");
@@ -35,6 +35,7 @@ public class InitialMovement : NetworkBehaviour {
       }
     //Function to access the GameObjects to be moved
     private void FindKUKAPieces(){
+        b1 = GameObject.Find("Ring0");
         tg1 = GameObject.Find("Ring1");
         tg2 = GameObject.Find("Ring2");
         tg3 = GameObject.Find("Ring3");
@@ -42,7 +43,11 @@ public class InitialMovement : NetworkBehaviour {
         tg5 = GameObject.Find("Ring5");
         tg6 = GameObject.Find("Head");
         tg7 = GameObject.Find("Camera");
+        t1 = GameObject.Find("Scalpel");
 
+        k = GameObject.Find("Rene");
+
+        b2 = GameObject.Find("Ring02");
         tg8 = GameObject.Find("Ring12");
         tg9 = GameObject.Find("Ring22");
         tg10 = GameObject.Find("Ring32");
@@ -50,6 +55,7 @@ public class InitialMovement : NetworkBehaviour {
         tg12 = GameObject.Find("Ring52");
         tg13 = GameObject.Find("Head2");
         tg14 = GameObject.Find("Camera2");
+        t2 = GameObject.Find("Scalpel2");
     }
     //Function to reconstruct the joint values from the string received from MATLAB 
     private float[] ReconstructJoints(String data){
@@ -70,9 +76,24 @@ public class InitialMovement : NetworkBehaviour {
         initJoints = ReconstructJoints(initData);
         initSecondJoints = ReconstructJoints(initSecondData);
         FindKUKAPieces();
-        StartCoroutine(MoveKuka(initJoints));
-        StartCoroutine(MoveSecondKuka(initSecondJoints));
+        DisplayPosition();
+        //StartCoroutine(MoveKuka(initJoints));
+        //StartCoroutine(MoveSecondKuka(initSecondJoints));
 
+    }
+
+    private void DisplayPosition(){
+        Debug.Log("Base-Shoulder");
+        Debug.Log(b1.transform.position);
+        Debug.Log(tg2.transform.position);
+        Debug.Log("Shoulder-Elbow");
+        Debug.Log(tg4.transform.position);
+        Debug.Log("Elbow-Wrist");
+        Debug.Log(tg7.transform.position);
+        Debug.Log("Wrist-Tool");
+        Debug.Log(t1.transform.position);
+        Debug.Log("Kidney");
+        Debug.Log(k.transform.position);
     }
 
       //Function to continuously move the KUKA robot upon receiving the message 

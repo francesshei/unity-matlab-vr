@@ -1,27 +1,53 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Mirror;
 
 //NetworkBehaviour  instead of MonoBehaviour to handle the networking system and actions
 public class SetUpLocalPlayer : NetworkBehaviour
 {
     //public Camera playerCam;
-    public GameObject VRCamera;
+    public GameObject EECam; 
+    public GameObject Cam;
+    //[SyncVar] bool ee; 
+    private Camera EECamera;
+    public Camera MainCamera; 
     // Start is called before the first frame update
     void Start()
-    {
-        //If the client connects to the server, then the camera will be set to its position and put in its hierarchy 
+    {   //If the client connects to the server, then the camera will be set to its position and put in its hierarchy 
         if(isLocalPlayer){
             Camera.main.transform.position = this.transform.position;
             Camera.main.transform.parent = this.transform;
+            MainCamera = Camera.main; 
         }
+    }
 
+    void FindCameras(){
+        EECam = GameObject.Find("EECam");
+        Cam = GameObject.Find("CamerasInteraction");
+        EECamera = EECam.GetComponent<Camera>();
+        //Debug.Log(Cam.GetComponent<CamerasInteraction>());
+        //Debug.Log(EECam);
     }
 
     // Update is called once per frame
-    void Awake()
+    void Update()
     {
-        //VRCamera = GameObject.Find("VRCamera");
+        FindCameras(); 
+
+        if(isLocalPlayer){
+            if(!GameObject.Find("CamerasInteraction").GetComponent<CamerasInteraction>().ee){
+                Debug.Log("Changing camera");
+                Camera.main.transform.position = EECamera.transform.position;
+                Camera.main.transform.rotation = EECamera.transform.rotation;
+                Camera.main.transform.parent = EECamera.transform;
+            }
+            else{
+                Camera.main.transform.position = this.transform.position;
+                Camera.main.transform.parent = this.transform;
+            }
+
+            //Debug.Log(GameObject.Find("CamerasInteraction").GetComponent<CamerasInteraction>().ee);
+            //MainCamera.enabled = GameObject.Find("CamerasInteraction").GetComponent<CamerasInteraction>().ee; 
+            //EECamera.enabled = !GameObject.Find("CamerasInteraction").GetComponent<CamerasInteraction>().ee; 
+        }
     }
 }
