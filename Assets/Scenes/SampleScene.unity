@@ -136,7 +136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89916891}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.597, z: 2.581}
+  m_LocalPosition: {x: 0, y: 0.75, z: 2.581}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1716305737}
@@ -237,7 +237,7 @@ MonoBehaviour:
   offlineScene: 
   onlineScene: 
   transport: {fileID: 96612523}
-  networkAddress: 192.168.1.238
+  networkAddress: 192.168.1.104
   maxConnections: 4
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 6907229429763580071, guid: 1000b595d18ab48debae88cb0c7243e6,
@@ -494,7 +494,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  initJoints:
+  secondJoints:
   - 0
   - 0
   - 0
@@ -503,6 +503,14 @@ MonoBehaviour:
   - 0
   - 0
   delta_joints:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  second_delta_joints:
   - 0
   - 0
   - 0
@@ -802,7 +810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1705561948
 MonoBehaviour:
   m_ObjectHideFlags: 0
