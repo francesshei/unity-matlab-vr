@@ -4,29 +4,31 @@ using UnityEngine;
 
 public class VRLookWalk : MonoBehaviour
 {
-    public Transform vrCamera;
-    public float toggleAngle = 30.0f;
-    public float speed = 3.0f; 
-    public bool moveForward;
-    private CharacterController cc;  
+    public Transform target;
+    public float toggleAngle = 45.0f;
+    public float speed = 1.5f; 
+    public bool moveAround;
+
+    //private CharacterController cc;  
     // Start is called before the first frame update
     void Start() 
     {
-      cc = GetComponent<CharacterController>();    
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (vrCamera.eulerAngles.x >= toggleAngle && vrCamera.eulerAngles.x < 90.0f ){
-            moveForward = true; 
+        if (this.transform.eulerAngles.z >= toggleAngle && this.transform.eulerAngles.z < 90.0f ){
+            moveAround = true; 
         }
         else {
-            moveForward = false;
+            moveAround = false;
         }
-        if(moveForward){
-            Vector3 forward = vrCamera.TransformDirection(Vector3.forward);
-            cc.SimpleMove(forward * speed);    
+        if(moveAround){
+            //Update the camera matrix
+            this.transform.RotateAround(target.position, Vector3.up, 15 * Time.deltaTime);
+            this.transform.LookAt(target); 
         }
     }
 }

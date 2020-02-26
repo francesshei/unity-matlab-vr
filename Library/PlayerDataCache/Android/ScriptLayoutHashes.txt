@@ -23,7 +23,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.G
 e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 201e3fde670b00545944bb3db215c80a UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Gvr.Internal.EditorCameraOriginDict
-0c93b1dce78043d8127e8d148a5db733 Assembly-CSharp.dll:.CamerasInteraction
+9b60e92656f51c1a75158384b42712b2 Assembly-CSharp.dll:.CamerasInteraction
 192ca9716d03752ea1d90a78bc2daac9 Mirror.Examples.dll:Mirror.Examples.NetworkRoom.RandomColor
 e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 b18f0d55b218ff8d17c2c7411b02c1bf Mirror.Examples.dll:Mirror.Examples.Additive.PlayerController
@@ -64,7 +64,7 @@ abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.Tou
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 3bb1b4bae6823a4524e793cdb8702970 Assembly-CSharp.dll:GoogleVR.PermissionsDemo.PermissionsFlowManager
 d3c76b14a25eebd3a3323dd43297919c Unity.TextMeshPro.dll:TMPro.TMP_InputField
-4e32a81d2ad0f83aeae0b8e9fd4d008d Assembly-CSharp.dll:.SetUpLocalPlayer
+7b1cb073c18e3f4a6618614d670edc2b Assembly-CSharp.dll:.SetUpLocalPlayer
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 507174d46dacbc5fe45e28485db5dd1e UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -154,7 +154,7 @@ df14204c8eef5efd8b1a9daa6e0a5862 Assembly-CSharp.dll:.GvrAllEventsTrigger
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
 10e5e5a6a80d1d5521d8e42ecdcff303 Assembly-CSharp.dll:GoogleVR.Beta.Demos.DemoSeeThroughController
 702330b33d6f348f76db0c974f6e02c3 Mirror.Authenticators.dll:Mirror.Authenticators.BasicAuthenticator
-8bba7ad7a2dfb03e18f2cbe8e88d4646 Assembly-CSharp.dll:.Movement
+b5f6ba0596b2f8ba1795dd332e6b1a27 Assembly-CSharp.dll:.Movement
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 598ebc44e15ac147da0bcc907e635a2d Assembly-CSharp.dll:.InitialMovement
 e87f50864f8a979f1228e8c69bd62658 Mirror.Examples.dll:Mirror.Examples.Pong.Ball
@@ -209,7 +209,7 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
 1cbb684877139a8fcd5903f27462e898 Assembly-CSharp.dll:.GvrPointerPhysicsRaycaster
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.GvrHeadset
-4809dddb37220de913659e1b0ef81665 Assembly-CSharp.dll:.VRLookWalk
+d61208f8b1343baf16197f731ddcc3f7 Assembly-CSharp.dll:.VRLookWalk
 439093cf702544bde01983000fdfdc56 Mirror.Examples.dll:Mirror.Examples.Pong.NetworkManagerPong
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.GvrRecenterOnlyController
 071d93f3e16645b8ca72486802a5b912 Mirror.dll:Mirror.FallbackTransport

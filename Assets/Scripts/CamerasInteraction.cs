@@ -4,7 +4,8 @@ using UnityEngine;
 using Mirror;
 public class CamerasInteraction : NetworkBehaviour
 {
-    public Camera EECamera;    
+    public Camera EECamera; 
+    public Camera Cam;   
     public Camera EECamera2;    
     private Camera MainCamera; 
     [SyncVar] public bool ee =  true; 
@@ -15,8 +16,10 @@ public class CamerasInteraction : NetworkBehaviour
         MainCamera = Camera.main; 
         //To set the server camera properly
         Camera.main.enabled = true; 
+        Cam.enabled = false;
         EECamera.enabled = false;
-        EECamera2.enabled = false; 
+        EECamera2.enabled = false;
+         
 
     }
     public void ChangeEE()
@@ -34,7 +37,7 @@ public class CamerasInteraction : NetworkBehaviour
            ee = !ee;
            Debug.Log(ee);
         }
-        //MainCamera.enabled = ee; 
-        //EECamera.enabled = !ee;
+        MainCamera.enabled = ee; 
+        Cam.enabled = !ee;
     }
 }
